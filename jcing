@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#BEGIN CONFIG
+HOST=''
+USER=''
+PASSWD=''
+OUTDIR="/some/path/jcing_out"
+REMOTEDIR="./jcing/"
+SNAP_NAME="`date +%y%m%d%H%M%S`.png"
+URL="http://somewhere.com/jcing/$SNAP_NAME"
+#END CONFIG
+
+xsnap -stdout | convert - -quality 100 $OUTDIR/$SNAP_NAME
+
+ftp -n -v $HOST << EOT
+ascii
+user $USER $PASSWD
+passive
+prompt
+put $OUTDIR/$SNAP_NAME $REMOTEDIR/$SNAP_NAME
+bye
+bye
+EOT
+
+firefox -remote "openfile ($URL, new-tab)" || firefox $URL >/dev/null 2>&1
+
