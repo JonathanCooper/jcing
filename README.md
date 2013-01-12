@@ -1,4 +1,4 @@
-This script will allow to select an area of your screen, take a screenshot, upload it to an FTP server, and then open the screenshot in firefox.
+This script will allow you to select an area of your screen, take a screenshot, upload it to an FTP server, and then open the screenshot in firefox, with just 2 mouse clicks.
 
 Of course you'll need to configure the FTP settings such that the storage area is web-accessible.
 
