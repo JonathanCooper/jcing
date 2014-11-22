@@ -7,4 +7,5 @@ I have the script set up as a keyboard shortcut.
 Requires:
 
 xsnap (http://freecode.com/projects/xsnap)
+
 ImageMagick (http://www.imagemagick.org/script/index.php)
