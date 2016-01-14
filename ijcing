@@ -1,0 +1,26 @@
+#!/bin/bash
+# osx version
+
+#BEGIN CONFIG
+HOST=''
+USER=''
+PASSWD=''
+OUTDIR="/Users/jc/.ijcing"
+REMOTEDIR="./jc/jcing/" # relative to home directory
+SNAP_NAME="`date +%y%m%d%H%M%S`.png"
+URL="http://example.com/jc/jcing/$SNAP_NAME"
+#END CONFIG
+
+screencapture -i $OUTDIR/$SNAP_NAME
+
+ftp -n -v $HOST << EOT
+ascii
+user $USER $PASSWD
+passive
+prompt
+put $OUTDIR/$SNAP_NAME $REMOTEDIR/$SNAP_NAME
+bye
+bye
+EOT
+
+open -a Firefox $URL
