@@ -23,4 +23,4 @@ bye
 bye
 EOT
 
-open -a Firefox $URL
+open -a "/Applications/Google Chrome.app" $URL
